@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    height: calc(100% - 8px);
     font-family: -apple-system, "Helvetica Neue", "Lucida Grande";
     font-weight: 600;
 }
@@ -98,5 +98,5 @@ hr {
 .rw-launcher {
     box-shadow: none !important;
     background-color: #002b70 !important;
-    margin: 10px 15px !important;
+    margin: 15px !important;
 }
