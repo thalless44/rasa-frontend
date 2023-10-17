@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFSCBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            font-family: -apple-system, "Helvetica Neue", "Lucida Grande";
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            margin: 8px;
+        }
+
+        .content {
+            margin: 8px 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #ebeaf5;
+            padding: 24px;
+        }
+
+        .title {
+            background: linear-gradient(0.35turn, #273859, #4838D5, #187EFF, #3c70ff);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 23px;
+            line-height: 98%;
+            letter-spacing: -0.2px;
+
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .capsule {
+            background-color: #001941;
+            color: white;
+            padding: 8px 28px;
+            text-align: center;
+            display: inline-block;
+            font-size: 17px;
+            border-radius: 30px;
+            margin-top: 12px;
+
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .description {
+            background-color: #001941;
+            flex: 4;
+            padding: 24px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .obrigado {
+            background-color: #002b70;
+        }
+
+        .obrigado > marquee {
+            padding: 16px;
+            font-size: 18px;
+            color: white;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .cue {
+            background-color: #0043ae;
+            flex: 1;
+            padding: 24px;
+            color: white;
+            font-size: 18px;
+        }
+
+        a {
+            color: rgb(202, 202, 202);
+            mix-blend-mode: luminosity;
+            text-decoration-color: rgb(84, 84, 84);
+            font-weight: bold;
+        }
+
+        a::after {
+            content: " ➔";
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        hr {
+            mix-blend-mode: luminosity;
+            border: 1px solid rgb(55, 55, 55);
+            margin: 16px 0;
+        }
+
+        .rw-launcher {
+            box-shadow: none !important;
+            background-color: #002b70 !important;
+            margin: 10px 15px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content header">
+            <div class="title"> Protótipo do chatbot do IFSC Campus Gaspar </div>
+            <div class="capsule"> BETA 1.0 </div>
+        </div>
+        <div class="content">
+            <div class="description">
+                <p> Boas-vindas à experiência de testes do chatbot do IFSC Campus Gaspar. </p>
+                <p> Confira o<a href="https://docs.google.com/document/d/1ISLWLUx8ZJFKNENQoNfpJpRw7z72WGvltyw_wYUbd78/edit?usp=sharing"> documento de resumo para a SNCT 2023 </a> </p>
+                
+                <hr>
+                <p> Após testar o  chatbot, <a href="https://docs.google.com/document/d/1ISLWLUx8ZJFKNENQoNfpJpRw7z72WGvltyw_wYUbd78/edit?usp=sharing"> envie o seu feedback </a> </p>
+            </div>
+            <div class="obrigado">
+                <marquee direction=right hspace="0px"> Obrigado por testar! 💙 </marquee>
+            </div>
+        </div>
+        <div class="content cue">
+            <p> Para iniciar a conversa, toque no balão ao lado. </p>
+        </div>
+    </div>
+
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src =
+          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+          (e.async = !0),
+          (e.onload = () => {
+            window.WebChat.default(
+              {
+                title: "IFSCBot",
+                inputTextFieldHint: "digite uma mensagem...",
+                initPayload: "/saudar",
+                customData: { language: "en" },
+                socketUrl: "http://localhost:5005",
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+      })();
+      </script>
+</body>
+</html>
