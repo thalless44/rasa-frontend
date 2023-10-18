@@ -16,18 +16,18 @@
         <div class="content">
             <div class="description">
                 <p> Boas-vindas à experiência de testes do chatbot do IFSC Campus Gaspar. </p>
-                <p> Confira o<a href="https://docs.google.com/document/d/1ISLWLUx8ZJFKNENQoNfpJpRw7z72WGvltyw_wYUbd78/edit?usp=sharing"> documento de resumo para a SNCT 2023 </a> </p>
+                <p> Confira o<a target="_blank" href="https://docs.google.com/document/d/1ISLWLUx8ZJFKNENQoNfpJpRw7z72WGvltyw_wYUbd78/edit?usp=sharing"> documento de resumo para a SNCT 2023 </a> </p>
                 
                 <hr>
-                <p> Após testar o  chatbot, <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBWH0iIQNVbxDKax6u7LlcHkTyNLEyvfSYY7lnXpzLo0aBzA/viewform"> envie o seu feedback </a> </p>
+                <p> Após testar o  chatbot, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfBWH0iIQNVbxDKax6u7LlcHkTyNLEyvfSYY7lnXpzLo0aBzA/viewform"> envie o seu feedback </a> </p>
             </div>
             <div class="obrigado">
                 <marquee direction=right hspace="0px"> Obrigado por testar! 💙 </marquee>
             </div>
         </div>
         <div class="content cue">
-            <p> Para iniciar a conversa, toque no balão no canto inferior direito. Tente dizer coisas como: </p>
-            <p id="pergunta"> "o campus está aberto?" </p>
+            <p id="pergunta-title"> O chatbot está desconectado no momento. Por favor aguarde. </p>
+            <p id="pergunta"> </p>
         </div>
     </div>
 
@@ -45,6 +45,10 @@
                 initPayload: "/saudar",
                 customData: { language: "en" },
                 socketUrl: "http://localhost:5005",
+                storage: "session",
+                onSocketEvent: {
+                  'connect': () => connect(),
+                }
               },
               null
             );
@@ -52,27 +56,38 @@
           t.insertBefore(e, t.firstChild);
       })();
 
-      const options = ["o campus está aberto hoje?",
-      "como faço para conseguir um atestado de matrícula?",
-      "como faço cancelamento de matrícula?",
-      "cheguei atrasado",
-      "conte uma piada"];
-      const text = document.getElementById("pergunta");
-      let currentIndex = 0;
+      function connect() {
+        const options = [
+          "o campus está aberto hoje?",
+          "como faço para conseguir um atestado de matrícula?",
+          "como faço cancelamento de matrícula?",
+          "cheguei atrasado",
+          "qual o site do campus",
+          "como faço para conseguir um atestado de frequência?",
+          "onde fica o campus gaspar?",
+          "conte uma piada"];
 
-      function updateText() {
-        text.textContent = '"'+options[currentIndex]+'"';
-        currentIndex = (currentIndex + 1) % options.length;
+        const title = document.getElementById("pergunta-title")
+        title.innerHTML = "Para iniciar a conversa, toque no balão no canto inferior direito. Tente dizer algo como:"
+
+        const text = document.getElementById("pergunta");
+
+        let currentIndex = 0;
+        function updateText() {
+          text.textContent = '"'+options[currentIndex]+'"';
+          currentIndex = (currentIndex + 1) % options.length;
+        }
+        updateText()
+
+        setInterval(() => {
+          text.style.animation = "fadeOut 1s";
+
+          setTimeout(() => {
+            updateText();
+            text.style.animation = "fadeIn 1s";
+          }, 1000);
+        }, 6000);
       }
-
-      setInterval(() => {
-        text.style.animation = "fadeOut 1s";
-
-        setTimeout(() => {
-          updateText();
-          text.style.animation = "fadeIn 1s";
-        }, 1000);
-      }, 6000);
       </script>
 </body>
 </html>

@@ -25,6 +25,7 @@ html, body {
 .title {
     background: linear-gradient(0.35turn, #273859, #4838D5, #187EFF, #3c70ff);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 23px;
     line-height: 98%;
