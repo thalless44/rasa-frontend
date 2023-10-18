@@ -29,6 +29,7 @@ html, body {
     font-size: 23px;
     line-height: 98%;
     letter-spacing: -0.2px;
+    margin-left: 4px;
 
     font-family: "Space Grotesk", sans-serif;
 }
@@ -93,6 +94,45 @@ hr {
     mix-blend-mode: luminosity;
     border: 1px solid rgb(55, 55, 55);
     margin: 16px 0;
+}
+
+#pergunta {
+    font-style: italic;
+    mix-blend-mode: luminosity;
+    color: rgba(200, 200, 200, 1);
+
+    font-size: 18px;
+
+    position: relative;
+
+    animation: fadeIn 1s;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        color: rgba(200, 200, 200, 0);
+        top: 24px;
+    }
+    100% {
+        color: rgba(200, 200, 200, 1);
+        top: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        color: rgba(200, 200, 200, 1);
+        top: 0;
+    }
+    100% {
+        color: rgba(200, 200, 200, 0);
+        top: 24px;
+    }
+}
+
+.rw-header {
+    background-color: #002b70 !important;
 }
 
 .rw-launcher {
