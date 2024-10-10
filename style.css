@@ -153,3 +153,8 @@ hr {
 .rw-widget-container p {
     font-size: 13.5px;
 }
+
+.rw-conversation-container .rw-message-text {
+    margin: 0;
+    font-size: 13.5px;
+}
