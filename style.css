@@ -48,6 +48,10 @@ html, body {
     font-family: "Space Grotesk", sans-serif;
 }
 
+.rw-message {
+    font-size: 8px;
+}
+
 .description {
     background-color: #001941;
     flex: 4;
@@ -140,4 +144,12 @@ hr {
     box-shadow: none !important;
     background-color: #002b70 !important;
     margin: 15px !important;
+}
+
+.rw-conversation-container .rw-reply {
+    font-size: 13.5px;
+}
+
+.rw-widget-container p {
+    font-size: 13.5px;
 }

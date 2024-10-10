@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IFSCBot</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="aaa();">
     <div class="container">
         <div class="content header">
             <div class="title"> Protótipo do chatbot do IFSC Campus Gaspar </div>
@@ -31,32 +32,10 @@
         </div>
     </div>
 
-    <script>!(function () {
-        let e = document.createElement("script"),
-          t = document.head || document.getElementsByTagName("head")[0];
-        (e.src =
-          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
-          (e.async = !0),
-          (e.onload = () => {
-            window.WebChat.default(
-              {
-                title: "IFSCBot",
-                inputTextFieldHint: "digite uma mensagem...",
-                initPayload: "/saudar",
-                customData: { language: "en" },
-                socketUrl: "http://localhost:5005",
-                storage: "session",
-                onSocketEvent: {
-                  'connect': () => connect(),
-                }
-              },
-              null
-            );
-          }),
-          t.insertBefore(e, t.firstChild);
-      })();
+    <script>
+       function aaa() {
 
-      function connect() {
+        function connect() {
         const options = [
           "o campus está aberto hoje?",
           "como faço para conseguir um atestado de matrícula?",
@@ -88,6 +67,26 @@
           }, 1000);
         }, 6000);
       }
+
+      
+            window.WebChat.default(
+              {
+                title: "IFSCBot",
+                inputTextFieldHint: "digite uma mensagem...",
+                initPayload: "/saudar",
+                customData: { language: "en" },
+                socketUrl: "http://localhost:5005",
+                storage: "session",
+                onSocketEvent: {
+                  'connect': () => connect(),
+                }
+              },
+              null
+            );
+          }
+        
+
+      
       </script>
 </body>
 </html>
