@@ -11,16 +11,22 @@
 <body onload="aaa();">
     <div class="container">
         <div class="content header">
-            <div class="title"> Protótipo do chatbot do IFSC Campus Gaspar </div>
-            <div class="capsule"> BETA 1.0 </div>
+            <div class="capsule"> BETA 1.1 </div>
+            <div class="title">Bem-vindo ao Protótipo do Chatbot do IFSC Campus Gaspar </div>
+            <hr>
+            <div class="title">Gostaríamos de convidá-lo a explorar nosso chatbot, que está sendo desenvolvido para ajudar os alunos a obter informações sobre procedimentos e documentos acadêmicos de forma rápida e eficiente.</div>
         </div>
         <div class="content">
             <div class="description">
-                <p> Boas-vindas à experiência de testes do chatbot do IFSC Campus Gaspar. </p>
-                <p> Confira o<a target="_blank" href="https://docs.google.com/document/d/1ISLWLUx8ZJFKNENQoNfpJpRw7z72WGvltyw_wYUbd78/edit?usp=sharing"> documento de resumo para a SNCT 2023 </a> </p>
-                
+                <p> Confira o<a target="_blank" href="https://docs.google.com/document/d/1KgkDPFPzNBVXvk56rFltqDqUJOedo1wtMTn4i5_ARF0/edit?tab=t.0"> documento de resumo para a SNCT 2024 </a> </p>
                 <hr>
+                <p>Imagine que você é um aluno do curso de Informática que ficou doente no dia da prova de Empreendedorismo. Agora, você precisa saber como solicitar a segunda chamada de avaliação. O nosso chatbot está aqui para fornecer todas as informações necessárias para que você possa resolver essa situação.</p>
+                <p>E como funciona o chatbot? Basta seguir os passos:</p>
+                <p>Acesse o chatbot) Clique no botão com ícone de mensagem, fica no canto inferior direito da página</p>
+                <p>Escolha uma opção) O chatbot oferece uma lista de opções. Selecione a que melhor se encaixa na sua dúvida e aguarde o bot buscar as informações para resposta.</p>
                 <p> Após testar o  chatbot, <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfBWH0iIQNVbxDKax6u7LlcHkTyNLEyvfSYY7lnXpzLo0aBzA/viewform"> envie o seu feedback </a> </p>
+                <hr>
+                <p>Sua participação nos ajudará a aprimorar nosso chatbot e oferecer uma experiência ainda melhor ao nosso público alvo. Agradecemos pela sua colaboração!</p>
             </div>
             <div class="obrigado">
                 <marquee direction=right hspace="0px"> Obrigado por testar! 💙 </marquee>
@@ -36,36 +42,8 @@
        function aaa() {
 
         function connect() {
-        const options = [
-          "o campus está aberto hoje?",
-          "como faço para conseguir um atestado de matrícula?",
-          "como faço cancelamento de matrícula?",
-          "cheguei atrasado",
-          "qual o site do campus",
-          "como faço para conseguir um atestado de frequência?",
-          "onde fica o campus gaspar?",
-          "conte uma piada"];
-
         const title = document.getElementById("pergunta-title")
-        title.innerHTML = "Para iniciar a conversa, toque no balão no canto inferior direito. Tente dizer algo como:"
-
-        const text = document.getElementById("pergunta");
-
-        let currentIndex = 0;
-        function updateText() {
-          text.textContent = '"'+options[currentIndex]+'"';
-          currentIndex = (currentIndex + 1) % options.length;
-        }
-        updateText()
-
-        setInterval(() => {
-          text.style.animation = "fadeOut 1s";
-
-          setTimeout(() => {
-            updateText();
-            text.style.animation = "fadeIn 1s";
-          }, 1000);
-        }, 6000);
+        title.innerHTML = "Clique no ícone ao lado para iniciar o atendimento >>>"
       }
       localStorage.clear();
       
